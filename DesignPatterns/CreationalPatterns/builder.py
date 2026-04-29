@@ -39,6 +39,7 @@ class ConcreteBuilder1(Builder):
         A fresh builder instance should contain a blank product object, which is
         used in further assembly.
         """
+        self._product = None
         self.reset()
 
     def reset(self) -> None:
@@ -74,7 +75,7 @@ class ConcreteBuilder1(Builder):
         self._product.add("PartC1")
 
 
-class Product1():
+class Product1:
     """
     It makes sense to use the Builder pattern only when your products are quite
     complex and require extensive configuration.

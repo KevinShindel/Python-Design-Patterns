@@ -45,6 +45,9 @@ class State(ABC):
     transition the Context to another State.
     """
 
+    def __init__(self):
+        self._context = None
+
     @property
     def context(self) -> Context:
         return self._context

@@ -2,10 +2,10 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from datetime import datetime
 from random import sample
-from string import ascii_letters, digits
+from string import ascii_letters
 
 
-class Originator():
+class Originator:
     """
     The Originator holds some important state that may change over time. It also
     defines a method for saving the state inside a memento and another method

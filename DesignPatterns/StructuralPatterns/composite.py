@@ -9,6 +9,9 @@ class Component(ABC):
     complex objects of a composition.
     """
 
+    def __init__(self):
+        self._parent = None
+
     @property
     def parent(self) -> Component:
         return self._parent

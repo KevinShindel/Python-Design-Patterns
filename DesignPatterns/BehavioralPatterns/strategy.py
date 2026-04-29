@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 from typing import List
 
 
-class Context():
+class Context:
     """
     The Context defines the interface of interest to clients.
     """

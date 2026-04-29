@@ -2,7 +2,7 @@ import json
 from typing import Dict
 
 
-class Flyweight():
+class Flyweight:
     """
     The Flyweight stores a common portion of the state (also called intrinsic
     state) that belongs to multiple real business entities. The Flyweight
@@ -19,7 +19,7 @@ class Flyweight():
         print(f"Flyweight: Displaying shared ({s}) and unique ({u}) state.", end="")
 
 
-class FlyweightFactory():
+class FlyweightFactory:
     """
     The Flyweight Factory creates and manages the Flyweight objects. It ensures
     that flyweights are shared correctly. When the client requests a flyweight,

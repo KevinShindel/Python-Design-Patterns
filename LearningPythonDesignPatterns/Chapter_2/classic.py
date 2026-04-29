@@ -1,7 +1,6 @@
 # Singleton pattern
 
 
-
 class Singleton:
     ''' classic singleton class '''
 
@@ -10,8 +9,10 @@ class Singleton:
             cls.instance = super().__new__(cls)
         return cls.instance
 
+
 class ChildSingleton(Singleton):
     pass
+
 
 def main():
 
@@ -19,7 +20,7 @@ def main():
     original_instance = Singleton()
     original_instance.msg = 'some message'
     new_instance = Singleton()
-    
+
     print(new_instance.msg)
     assert original_instance is new_instance
 
@@ -28,6 +29,7 @@ def main():
 
     assert child_instance is original_instance
     print(child_instance.msg)
+
 
 if __name__ == '__main__':
     main()

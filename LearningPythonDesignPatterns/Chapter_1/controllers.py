@@ -6,9 +6,11 @@ import models
 
 app = Flask(__name__, template_folder='views')
 
+
 @app.route('/')
 def index():
     return render_template('main_page.html')
+
 
 @app.route('/shorten/')
 def shorten():
@@ -31,6 +33,7 @@ def redirect_to_full(path=''):
         raise NotFound()
 
     return redirect(url_model.full_url)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

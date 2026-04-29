@@ -1,6 +1,6 @@
 # Model-View-Controller pattern
-
 import pickle
+
 
 class URL:
 
@@ -44,7 +44,7 @@ class URL:
 
     @staticmethod
     def __save_last_short_url(url):
-        pickle.dump(url , open('short_to_url.p', 'wb'))
+        pickle.dump(url, open('short_to_url.p', 'wb'))
 
     @staticmethod
     def __load_url_mapping():

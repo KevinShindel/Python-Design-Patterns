@@ -1,4 +1,3 @@
-import urllib
 from urllib.request import urlopen
 from xml.dom import minidom
 

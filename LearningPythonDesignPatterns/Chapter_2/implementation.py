@@ -14,17 +14,18 @@ from bs4 import BeautifulSoup as Bs
 
 from classic import Singleton
 
+
 class WebThreadSingleton(Singleton):
     __queue_to_parse: list = []
-    __parsed_root: ParseResult  = None
+    __parsed_root: ParseResult = None
     __to_visit: set = set()
     __downloaded: set = set()
 
-    @property # getter
+    @property  # getter
     def parsed_root(self):
         return self.__parsed_root
 
-    @parsed_root.setter # setter
+    @parsed_root.setter  # setter
     def parsed_root(self, value):
         self.__parsed_root = value
 
@@ -70,6 +71,7 @@ class WebThreadSingleton(Singleton):
 
 logger = getLogger(__name__)
 
+
 def uri_validator(url):
     try:
         result = urlparse(url)
@@ -77,6 +79,7 @@ def uri_validator(url):
     except Exception as Err:
         logger.error(str(Err))
         return False
+
 
 class ImageDownloaderThread(threading.Thread):
 
@@ -124,15 +127,14 @@ def traverse_site(max_links=10):
             if parsed.netloc and parsed.netloc != singleton.parsed_root.netloc:
                 continue
 
-            link_url = (parsed.scheme or singleton.parsed_root.scheme) + '://' + (parsed.netloc or singleton.parsed_root.netloc) + parsed.path or ''
+            link_url = ((parsed.scheme or singleton.parsed_root.scheme) + '://' +
+                        (parsed.netloc or singleton.parsed_root.netloc) + parsed.path or '')
 
             if link_parser_singleton.is_link_exist(link_url):
                 continue
 
             link_parser_singleton.add_to_queue(link_url)
             link_parser_singleton.add_to_queue(link_parser_singleton.queue_to_parse)
-
-
 
 
 def download_images(thread_name):
@@ -150,7 +152,7 @@ def download_images(thread_name):
 
         soup = Bs(response, 'html.parser')
 
-        for image in  soup.find_all('img'):
+        for image in soup.find_all('img'):
 
             src = image.get('src')
             src = urljoin(url, src)
